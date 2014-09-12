@@ -48,6 +48,6 @@ Additional api calls :
     Additional required fields: id
     Success returns: {status: true}
     
-  * app_fetch_user_content : Get a list of your content that was created by some user account
+  * app_fetch_user_content : Get a list of your content that was created by some user account.   
     Additional required fields: created_by
     Success returns: {status: true, result: [user_content{common fields}] }
