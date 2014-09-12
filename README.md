@@ -21,7 +21,7 @@ Every api call has the following required fields:
     
 This forms the basis of how we identify and authenticate your app in our database.
     
-Other common field definitions:
+Other common field definitions:     
   id: The signature of this content. This is how we look it up in our database, so don't lose it!  
   created_by: Who is creating this content? - Must be a valid user account_id  
   text: Brief description of this content - String  
