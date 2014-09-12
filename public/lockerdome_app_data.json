@@ -1,0 +1,5 @@
+{
+  "ui_url": "http://www.YourWebsite.com/app_ui",
+  "name": "Sample LD App",
+  "encrypted_app_secret":"big_long_string"
+}

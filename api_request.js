@@ -2,7 +2,8 @@ var http = require('http');
 
 module.exports = function (op, args, success, failure) {
   var options = {
-    hostname: 'api.lockerdome.com',
+    port: 80,
+    hostname: 'api.appsplayground.v3.lockerdome.com',
     path: '/' + op,
     method: 'POST'
   };

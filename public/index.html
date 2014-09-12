@@ -1,6 +1,53 @@
 <html>
-<head></head>
+<head>
+  <script type="text/javascript" src="/app_platform.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
+</head>
 <body>
-  <h1>Hello world!</h1>
+  <h1>Hello world! </h1>
+  <div>
+    <div>Width: <span id="frame_width">0</span></div>
+    <div>Height: <span id="frame_height">0</span></div>
+    <div>Account ID: <span id="account_id">null</span></div>
+    <div>Login Token: <span id="login_token">null</span></div>
+    <div>App ID: <span id="app_id">null</span></div>
+    <div>Args: <span id="app_args">null</span></div>
+  </div>
+  <script>
+    function resize(manualSize) {
+      if (typeof manualSize === 'number') {
+        LD.request_height(manualSize);
+        return;
+      }
+      LD.request_height($('.iframe-body').height());
+    }
+
+    function update_account_id(){
+      $("#account_id").html(JSON.stringify(LD.account_id));
+      $("#login_token").html(JSON.stringify(LD.login_token));
+    }
+    update_account_id();
+
+    $("#app_id").html(JSON.stringify(LD.app_id));
+    $("#app_args").html(JSON.stringify(LD.args));
+    LD.on('login', update_account_id);
+    LD.on('logout', update_account_id);
+    LD.request_height(600);
+    function width(){ return document.querySelector('html').offsetWidth; }
+    function height(){ return document.querySelector('html').offsetHeight; }
+    function resize(){
+      var dim = [width(), height()];
+      $("#frame_width").html(dim[0]);
+      $("#frame_height").html(dim[1]);
+    }
+    window.addEventListener('resize', resize);
+    $('document').ready(function () {
+      setTimeout(function() {
+        resize();
+      });
+    });
+  </script>
 </body>
 </html>
