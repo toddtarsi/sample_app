@@ -16,7 +16,7 @@ var api_ops = require('./api_ops')(app_ids, app_secrets);
 
 //This is where we begin serving the urls
 var server = http.createServer(function (request, response) {
-  var filePath = './Interface' + request.url;
+  var filePath = './public' + request.url;
 
   //Url aliasing to get to our apps main html page 
   //(LockerDome opens this page as the iframe)
@@ -73,4 +73,5 @@ var server = http.createServer(function (request, response) {
 		    });
 	    }
     });
+  }
 }).listen(2000);
