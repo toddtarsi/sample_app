@@ -22,12 +22,12 @@ Every api call has the following required fields:
 This forms the basis of how we identify and authenticate your app in our database.
     
 Other common field definitions:     
-  id: The signature of this content. This is how we look it up in our database, so don't lose it!  
-  created_by: Who is creating this content? - Must be a valid user account_id  
-  text: Brief description of this content - String  
-  thumb_url: A url to a preview image of this piece of content. - String  
-  name: The formal name for a piece of content. - String  
-  app_data: This is where we give you the reins. It is essentially an empty json object hooked up to redis, which you are able to rig up with your own data model. Pretty sweet, right?
+  * id: The signature of this content. This is how we look it up in our database, so don't lose it!  
+  * created_by: Who is creating this content? - Must be a valid user account_id  
+  * text: Brief description of this content - String  
+  * thumb_url: A url to a preview image of this piece of content. - String  
+  * name: The formal name for a piece of content. - String  
+  * app_data: This is where we give you the reins. It is essentially an empty json object hooked up to redis, which you are able to rig up with your own data model. Pretty sweet, right?
 
 Additional api calls :
 
