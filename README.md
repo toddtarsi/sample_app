@@ -29,25 +29,25 @@ Other common field definitions:
   * name: The formal name for a piece of content. - String  
   * app_data: This is where we give you the reins. It is essentially an empty json object hooked up to redis, which you are able to rig up with your own data model. Pretty sweet, right?
 
-Additional api calls :
+Additional api calls :   
 
   * app_create_content : Create a single piece of content using our database.   
-    Additional optional fields: created_by, app_data, text, thumb_url, name
-    Success returns: {status: true, result: {common fields} }
+    Additional optional fields: created_by, app_data, text, thumb_url, name   
+    Success returns: {status: true, result: {common fields} }   
     
   * app_fetch_content : Fetches a single piece of content using our database.   
-    Additional required fields: id
-    Success returns: {status: true, result: {common fields} }
+    Additional required fields: id   
+    Success returns: {status: true, result: {common fields} }   
     
   * app_update_content : Updates a single piece of content using our database.   
-    Additional required fields: id
-    Additional optional fields: app_id, app_data, text, thumb_url, name
-    Success returns: {status: true, result: {common fields} }
+    Additional required fields: id   
+    Additional optional fields: app_id, app_data, text, thumb_url, name   
+    Success returns: {status: true, result: {common fields} }   
     
   * app_destroy_content : Destroys a single piece of your content using our database.   
-    Additional required fields: id
-    Success returns: {status: true}
+    Additional required fields: id   
+    Success returns: {status: true}   
     
   * app_fetch_user_content : Get a list of your content that was created by some user account.   
-    Additional required fields: created_by
-    Success returns: {status: true, result: [user_content{common fields}] }
+    Additional required fields: created_by   
+    Success returns: {status: true, result: [user_content{common fields}] }   
