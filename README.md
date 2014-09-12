@@ -30,7 +30,7 @@ This forms the basis of how we identify and authenticate your app in our databas
   * **name**: The formal name for a piece of content. - String  
   * **app_data**: This is where we give you the reins. It is essentially an empty json object hooked up to redis, which you are able to rig up with your own data model. Pretty sweet, right?
 
-#### Additional api calls :    
+#### Primary api calls :    
 
   * **app_create_content**: Create a single piece of content using our database.   
     Additional optional fields: created_by, app_data, text, thumb_url, name   
