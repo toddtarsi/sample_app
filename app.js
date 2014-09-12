@@ -1,17 +1,15 @@
 "use strict;"
 
 // First we'll declare our modules that we're using
-var _ = require('underscore'),
-util = require('util'),
-http = require('http'),
+var http = require('http'),
 fs = require('fs');
 
 // Next, we save our credentials to authorize server interactions
-var app_secrets = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
-var app_ids = '0000000000000';
+var credentials = require('./.app_credentials')
+var app_secrets = credentials.secret;
+var app_ids = credentials.id;
 
 // This is a helper file to make api calls easier
-// To download it, follow the url at the bottom of the page.
 var api_ops = require('./api_ops')(app_ids, app_secrets);
 
 //This is where we begin serving the urls
@@ -20,10 +18,10 @@ var server = http.createServer(function (request, response) {
 
   //Url aliasing to get to our apps main html page 
   //(LockerDome opens this page as the iframe)
-  if (filePath === './Interface/app_ui') 
-    filePath = './Interface/index.html';
+  if (filePath === './public/app_ui') 
+    filePath = './public/index.html';
 
-  //Post requests usually are usually performing api calls
+  //Post requests usually are performing api calls
   if (req.method == 'POST') {
 
     var body = '';
@@ -41,9 +39,9 @@ var server = http.createServer(function (request, response) {
 
       //Any time an api call fails, we have our app server log it
       function bad(message){ 
+        console.log(message); 
         response.writeHead(200); 
         response.end(message); 
-        console.log(message); 
       }
 
       //Use the api_ops function to make api calls and handle responses
