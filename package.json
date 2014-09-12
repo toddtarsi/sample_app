@@ -1,0 +1,7 @@
+{
+  "name" : "Sample_App",
+  "version" : "0.0.7",
+  "dependencies" : {
+    "underscore" : "1.7.0"
+  }
+}
