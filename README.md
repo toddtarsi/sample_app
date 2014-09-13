@@ -53,14 +53,15 @@ This forms the basis of how we identify and authenticate your app in our databas
     
 Let's assume your site is www.foo.com
     
- * **Request an app token**: Make a request to appsplayground.v3.lockerdome.com/api/create\_app\_secret\_key    
+ * **Request an app token**:    
+Make a request to appsplayground.v3.lockerdome.com/api/create\_app\_secret\_key    
     Required fields: None;    
     Success returns: { secret\_key: hashstring, encrypted\_secret\_key: hashstring }    
     Notes: The secret key is important as it will authenticate your calls.    
     The encrypted secret key is important as it will identify your app url.    
     
  * **Create an app description on your site**:    
-    We look a json object at this relative url on yourdomain.com/lockerdome\_app\_data.json    
+We look a json object at this relative url on yourdomain.com/lockerdome\_app\_data.json    
     ````
     {
       name: Your app name - "Foo",
@@ -70,10 +71,10 @@ Let's assume your site is www.foo.com
     ````
     
  * **Tell us to check your site for an app**:    
- Make a request to appsplayground.v3.lockerdome.com/api/update\_website\_app    
+Make a request to appsplayground.v3.lockerdome.com/api/update\_website\_app    
     
     Required fields: { Domain: www.foo.com; }    
     Success returns: { app_id: The ID of your app }    
-    
-    And it's finished! Any time we see an external link to your site, we'll load an iframe pointing to your app, with a url parameter in the querystring naming the URL that the link originally pointed to.    
+        
+And it's finished! Any time we see an external link to your site, we'll load an iframe pointing to your app, with a url parameter in the querystring naming the URL that the link originally pointed to.    
     
