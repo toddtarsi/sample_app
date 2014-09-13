@@ -67,7 +67,7 @@ We look a json object at this relative url on www.foo.com/lockerdome\_app\_data.
     {
       name: Your app name - "Foo",
       ui-url: Absolute url that the iframe we open will point to - "www.foo.com/LDapp",
-      encrypted\_app\_secret: the same field returned from create\_app\_secret\_key
+      encrypted_app_secret: the same field returned from create_app_secret_key
     }
     ````
         
