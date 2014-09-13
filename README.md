@@ -16,8 +16,8 @@ There are 4 primary api calls with enough control to be simple, and enough abstr
 
 Every api call has the following required fields:
 
- * **app_id**: The id of your app. This should be returned from the update\_website\_app call.
- * **app_secret**: The secret returned from the create\_app\_secret_key call.
+  * **app_id**: The id of your app. This should be returned from the update\_website\_app call.
+  * **app_secret**: The secret returned from the create\_app\_secret_key call.
     
 This forms the basis of how we identify and authenticate your app in our database.
     
@@ -49,29 +49,27 @@ This forms the basis of how we identify and authenticate your app in our databas
     Additional required fields: id   
     Success returns: {status: true}   
 
-#### Exposing the site from your domain:
+## Hooking your app up to our site:    
 
-    We didn't write these calls into api_ops.js, but you are free to expand it with those functions.  
-    It's a short document and gives an easy way to keep an interface of calls.    
+    Let's assume your site is www.foo.com
 
-  * **Request an app token**: Make a request to appsplayground.v3.lockerdome.com/api/create\_app\_secret\_key
+ * **Request an app token**: Make a request to appsplayground.v3.lockerdome.com/api/create\_app\_secret\_key
     Required fields: None;
     Success returns: { secret\_key: hashstring, encrypted\_secret\_key: hashstring }    
-    Notes: The secret key is important as it will control how you authenticate your calls.    
-    The encrypted secret key is important as it will control how you tell us your app ui url
+    Notes: The secret key is important as it will authenticate your calls.    
+    The encrypted secret key is important as it will identify your app url.
 
-  * **Place the encrypted_app_secret on your site**: We look for it at the relative url: /lockerdome\_app\_data.json
-    We look there for the following JSON response:    
-    
+ * **Create an app description on your site**: 
+    We look a json object at this relative url on yourdomain.com/lockerdome\_app\_data.json    
     ````
     {
-      name: Your app name,    
-      ui-url: Absolute url that the iframe we open will point to,    
-      encrypted\_app\_secret: encrypted\_secret\_key returned from create\_app\_secret_key    
+      name: Your app name - "Foo",    
+      ui-url: Absolute url that the iframe we open will point to - "www.foo.com/LDapp",    
+      encrypted\_app\_secret: the same field returned from create\_app\_secret\_key    
     }
     ````
 
-  * **Tell us to check your site for an app**: Make a request to appsplayground.v3.lockerdome.com/api/update\_website\_app    
+ * **Tell us to check your site for an app**: Make a request to appsplayground.v3.lockerdome.com/api/update\_website\_app    
     Required fields: { Domain: www.foo.com; }    
     Success returns: { app_id: The ID of your app }    
 
