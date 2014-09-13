@@ -62,7 +62,7 @@ Make a request to appsplayground.v3.lockerdome.com/api/create\_app\_secret\_key
     The encrypted secret key is important as it will identify your app url.    
         
  * **Create an app description on your site**:    
-We look a json object at this relative url on yourdomain.com/lockerdome\_app\_data.json    
+We look a json object at this relative url on www.foo.com/lockerdome\_app\_data.json    
     ````
     {
       name: Your app name - "Foo",
