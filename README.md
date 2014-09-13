@@ -72,7 +72,7 @@ This forms the basis of how we identify and authenticate your app in our databas
     ````
 
   * **Tell us to check your site for an app**: Make a request to appsplayground.v3.lockerdome.com/api/update\_website\_app    
-    Required fields: { Domain: www.YourDomain.com; }    
+    Required fields: { Domain: www.foo.com; }    
     Success returns: { app_id: The ID of your app }    
 
     And it's finished! Any time we see an external link to your site, we'll load an iframe pointing to your app, with a url parameter in the querystring naming the URL that the link originally pointed to.
